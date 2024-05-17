@@ -1,5 +1,5 @@
 const Meditate = () => {
-  return <div>Meditate</div>;
+  return <></>;
 };
 
 export default Meditate;
