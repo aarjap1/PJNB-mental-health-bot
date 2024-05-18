@@ -1,3 +1,5 @@
 body {
     background-color: #E6FAF0;
+    margin: 0 auto;
+    width: inherit;
 }
