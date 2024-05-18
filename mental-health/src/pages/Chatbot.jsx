@@ -29,10 +29,10 @@ const Chatbot = () => {
 
   return (
     <>
-      <div className="logo-container">
-        <img src={logo} alt="main-logo" className="main-logo" />
-      </div>
       <div className="chat-container">
+        <div className="logo-container">
+          <img src={logo} alt="main-logo" className="main-logo" />
+        </div>
         <div className="messages-list">
           {messages.map((msg, index) => (
             <Chatbox key={index} message={msg.text} isSender={msg.isSender} />

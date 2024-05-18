@@ -19,6 +19,7 @@
     overflow-y: auto;
     background-color: #E6FAF0;
     margin-left: 20px;
+    margin-right: 30px;
 
 }
 
@@ -127,10 +128,15 @@
 
 .main-logo {
     width: 100px;
+    height: auto;
+    /* Maintain aspect ratio */
 }
 
 .logo-container {
-    position: absolute;
+    position: relative;
+    /* or absolute depending on your layout needs */
+    z-index: 10;
+    /* A high z-index value to ensure it is on top */
     margin-top: 20px;
     margin-right: 40px;
     right: 0;

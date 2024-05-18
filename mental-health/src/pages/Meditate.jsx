@@ -67,10 +67,16 @@ const Meditate = () => {
     calmMusicAudio.currentTime = 0;
   };
 
+  const stopMusicAndTimer = () => {
+    stopTimer();
+    calmMusicAudio.pause();
+    calmMusicAudio.currentTime = 0;
+  };
+
   return (
     <>
       <div className="meditatePage">
-        <Link to="/">
+        <Link to="/" onClick={stopMusicAndTimer}>
           <div className="backImage">
             <img src={chat} className="message-icon" alt="Back to home" />
           </div>
