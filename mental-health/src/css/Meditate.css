@@ -1,15 +1,25 @@
 @import url('https://fonts.cdnfonts.com/css/sansation?styles=169710');
 
 .meditatePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  /* Set the height to the full viewport height */
   overflow: hidden;
+  /* Hide any content that overflows the viewport */
+}
+
+.backImage {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
 .meditateImage {
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
   animation: swing 10s infinite;
-
 }
 
 @keyframes swing {
@@ -35,8 +45,8 @@
 }
 
 .message-icon {
-  margin-top: 40px;
-  margin-left: 40px;
+  margin-top: 10px;
+  margin-left: 20px;
   width: 76px;
   height: 74px
 }
@@ -45,7 +55,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
+
 
 .timerContainer {
   font-family: 'Sansation', sans-serif;
@@ -54,15 +66,15 @@
   align-items: center;
   background: linear-gradient(to right, #E6FAF0 0%, #91E8BC 50%, #E6FAF0 100%);
   width: 886px;
-  height: 169px;
-  margin-top: 40px;
+  height: 120px;
+  margin-top: 15px;
   font-size: 39px;
 }
 
 .controlsContainer {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+
   gap: 20px;
 }
 
@@ -76,7 +88,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+
   transition: background-color 0.4s, color 0.4s, transform 0.4s;
   cursor: pointer;
   border-radius: 12px;

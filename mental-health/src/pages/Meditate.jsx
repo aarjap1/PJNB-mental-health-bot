@@ -84,9 +84,6 @@ const Meditate = () => {
         <div className="meditateImage">
           <img src={meditate} alt="Meditate" />
         </div>
-        <div className="parenttimerContainer">
-          <div className="timerContainer">{timer}</div>
-        </div>
         <div className="controlsContainer">
           <button
             className="button start"
@@ -105,6 +102,9 @@ const Meditate = () => {
           <button className="button reset" onClick={resetTimer}>
             Reset
           </button>
+        </div>
+        <div className="parenttimerContainer">
+          <div className="timerContainer">{timer}</div>
         </div>
       </div>
     </>
