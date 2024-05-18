@@ -1,13 +1,10 @@
 /* src/components/Chat.css */
 .chat-container {
+    background-color: #E6FAF0;
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -19,6 +16,18 @@
     overflow-y: auto;
     background-color: #f9f9f9;
 }
+
+.guidedBreathingImg {
+    max-height: 75px;
+    max-width: 75px;
+    margin-right: 10px;
+}
+
+.sendBtn {
+    max-height: 30px;
+    max-width: 30px;
+}
+
 
 .input-container {
     display: flex;
@@ -49,20 +58,40 @@
 }
 
 .message-item {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    max-width: 80%;
-}
+
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: -5px;
+    padding-bottom: -5px;
+    margin: 5px 0;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .message-item::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+  }
+
 
 .sender {
-    background-color: yellow;
+    background-color: #E6E6FA;
     align-self: flex-end;
     text-align: right;
 }
 
 .receiver {
-    background-color: green;
+    background-color: #FAFAE6;
     align-self: flex-start;
     text-align: left;
 }

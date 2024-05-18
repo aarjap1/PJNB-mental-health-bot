@@ -1,0 +1,47 @@
+.meditatePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  justify-content: center;
+}
+
+.meditateImage {
+    margin-top: 20px;   
+}
+
+.meditateImage img {
+    max-width: 100%; /* Ensure the image scales correctly */
+    animation: rotateImage 60s linear infinite; /* Apply animation to the image */
+  }
+  
+  @keyframes rotateImage {
+    from {
+      transform: rotate(0deg); /* Start rotation from 0 degrees */
+    }
+    to {
+      transform: rotate(360deg); /* End rotation at 360 degrees */
+    }
+  }
+
+.backImage {
+    position: absolute;
+    left: 20px; /* Adjust the distance from the left side */
+    top: 10%; /* Adjust the vertical position */
+    transform: translateY(-50%);
+  }
+  
+  .backImage img {
+    max-height: 75px;
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+  }
+.timerContainer {
+    width: 60%;
+    height: 200px; /* Adjust the height as needed */
+    background: linear-gradient(to right, #E6FAF0, #91E8BC, #E6FAF0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Text color */
+    font-size: 50px; /* Adjust text size as needed */
+  }
+  
