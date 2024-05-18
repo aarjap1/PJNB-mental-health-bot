@@ -1,47 +1,55 @@
-.meditatePage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  justify-content: center;
-}
+@import url('https://fonts.cdnfonts.com/css/sansation?styles=169710');
 
 .meditateImage {
-    margin-top: 20px;   
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  animation: swing 60s infinite;
 }
 
-.meditateImage img {
-    max-width: 100%; /* Ensure the image scales correctly */
-    animation: rotateImage 60s linear infinite; /* Apply animation to the image */
-  }
-  
-  @keyframes rotateImage {
-    from {
-      transform: rotate(0deg); /* Start rotation from 0 degrees */
-    }
-    to {
-      transform: rotate(360deg); /* End rotation at 360 degrees */
-    }
+@keyframes swing {
+  20% {
+    transform: rotate(15deg);
   }
 
-.backImage {
-    position: absolute;
-    left: 20px; /* Adjust the distance from the left side */
-    top: 10%; /* Adjust the vertical position */
-    transform: translateY(-50%);
+  40% {
+    transform: rotate(-10deg);
   }
-  
-  .backImage img {
-    max-height: 75px;
-    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+
+  60% {
+    transform: rotate(5deg);
   }
+
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.message-icon {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 76px;
+  height: 74px
+}
+
+.parenttimerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .timerContainer {
-    width: 60%;
-    height: 200px; /* Adjust the height as needed */
-    background: linear-gradient(to right, #E6FAF0, #91E8BC, #E6FAF0);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #333; /* Text color */
-    font-size: 50px; /* Adjust text size as needed */
-  }
-  
+  font-family: 'Sansation', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #E6FAF0 0%, #91E8BC 50%, #E6FAF0 100%);
+  width: 886px;
+  height: 169px;
+  margin-top: 70px;
+  font-size: 39px;
+}

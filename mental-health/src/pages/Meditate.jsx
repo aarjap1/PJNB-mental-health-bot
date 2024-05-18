@@ -1,45 +1,62 @@
-import chat from '../assets/images/chat.png';
-import meditate from '../assets/images/meditation.png';
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import "../css/Meditate.css";
+import chat from "../assets/images/chat.png";
+import meditate from "../assets/images/meditation.png";
+import alarmSound from "../assets/sounds/alarm.mp3";
 
 const Meditate = () => {
-
-  const [timer, setTimer] = useState("00:59");
+  const [timer, setTimer] = useState("00 : 59");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      // Split the current timer value into minutes and seconds
-      const [minutes, seconds] = timer.split(":").map(Number);
+    let timerInterval;
 
-      // Update the timer
-      if (minutes === 0 && seconds === 0) {
-        clearInterval(interval); // Stop the timer when it reaches 00:00
-      } else if (seconds === 0) {
-        setTimer(`${minutes - 1 < 10 ? '0' : ''}${minutes - 1}:59`); // Decrease minutes and reset seconds to 59
-      } else {
-        setTimer(`${minutes < 10 ? '0' : ''}${minutes}:${seconds - 1 < 10 ? '0' : ''}${seconds - 1}`); // Decrease seconds
-      }
-    }, 1000); // Update timer every second
+    const startTimer = () => {
+      const totalTime = 59;
+      let currentTime = totalTime;
 
-    return () => clearInterval(interval); // Clean up the interval
-  }, [timer]); // Re-run effect when timer state changes
+      timerInterval = setInterval(() => {
+        const minutes = Math.floor(currentTime / 60)
+          .toString()
+          .padStart(2, "0");
+        const seconds = (currentTime % 60).toString().padStart(2, "0");
+        setTimer(`${minutes} : ${seconds}`);
 
-  return <>
-  <div className='meditatePage'>
-    <Link to="/">
-    <div className='backImage'>
-      <img src={chat} alt="" />
+        if (currentTime === 0) {
+          clearInterval(timerInterval);
+          playAlarm();
+        } else {
+          currentTime -= 1;
+        }
+      }, 1000);
+    };
+
+    startTimer();
+
+    return () => clearInterval(timerInterval);
+  }, []);
+
+  const playAlarm = () => {
+    const audio = new Audio(alarmSound);
+    audio.play();
+  };
+
+  return (
+    <>
+      <div className="meditatePage">
+        <Link to="/">
+          <div className="backImage">
+            <img src={chat} className="message-icon" alt="Back to home" />
+          </div>
+        </Link>
+        <div className="meditateImage">
+          <img src={meditate} alt="Meditate" />
+        </div>
+        <div className="parenttimerContainer">
+          <div className="timerContainer">{timer}</div>
+        </div>
       </div>
-    </Link>
-    <div className='meditateImage'><img src={meditate} alt="" /></div>
-    <div className='timerContainer'>
-      {timer}
-    </div>
-  </div>
-    
-  </>;
+    </>
+  );
 };
 
 export default Meditate;
