@@ -3,22 +3,27 @@ import { Link } from "react-router-dom";
 import chat from "../assets/images/chat.png";
 import meditate from "../assets/images/meditation.png";
 import alarmSound from "../assets/sounds/alarm.mp3";
+import calmMusic from "../assets/sounds/calmMusic.mp3";
 
 const Meditate = () => {
   const [timer, setTimer] = useState("00 : 59");
   const [isRunning, setIsRunning] = useState(false);
   const [currentTime, setCurrentTime] = useState(59);
-  const [audio] = useState(new Audio(alarmSound));
+  const [alarmAudio] = useState(new Audio(alarmSound));
+  const [calmMusicAudio] = useState(new Audio(calmMusic));
 
   useEffect(() => {
     let timerInterval;
 
-    if (isRunning) {
+    if (isRunning && currentTime > 0) {
+      calmMusicAudio.play();
       timerInterval = setInterval(() => {
         setCurrentTime((prevTime) => {
-          if (prevTime <= 0) {
+          if (prevTime <= 1) {
             clearInterval(timerInterval);
             playAlarm();
+            calmMusicAudio.pause();
+            calmMusicAudio.currentTime = 0;
             return 0;
           }
           return prevTime - 1;
@@ -38,7 +43,7 @@ const Meditate = () => {
   }, [currentTime]);
 
   const playAlarm = () => {
-    audio.play();
+    alarmAudio.play();
   };
 
   const startTimer = () => {
@@ -47,15 +52,19 @@ const Meditate = () => {
 
   const stopTimer = () => {
     setIsRunning(false);
-    audio.pause();
-    audio.currentTime = 0;
+    alarmAudio.pause();
+    alarmAudio.currentTime = 0;
+    calmMusicAudio.pause();
+    calmMusicAudio.currentTime = 0;
   };
 
   const resetTimer = () => {
     setIsRunning(false);
     setCurrentTime(59);
-    audio.pause();
-    audio.currentTime = 0;
+    alarmAudio.pause();
+    alarmAudio.currentTime = 0;
+    calmMusicAudio.pause();
+    calmMusicAudio.currentTime = 0;
   };
 
   return (
@@ -76,7 +85,7 @@ const Meditate = () => {
           <button
             className="button start"
             onClick={startTimer}
-            disabled={isRunning}
+            disabled={isRunning || currentTime === 0}
           >
             Start
           </button>
