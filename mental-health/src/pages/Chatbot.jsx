@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import guidedBreathing from "../assets/images/guidedBreathing.png";
 import send from "../assets/images/send.png";
+import logo from "../assets/images/logo.png";
 import "../css/Meditate.css";
 
 const Chatbot = () => {
@@ -27,35 +28,40 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="chat-container">
-      <div className="messages-list">
-        {messages.map((msg, index) => (
-          <Chatbox key={index} message={msg.text} isSender={msg.isSender} />
-        ))}
+    <>
+      <div className="logo-container">
+        <img src={logo} alt="main-logo" className="main-logo" />
       </div>
-      <div className="input-container">
-        <Link to="/meditate">
-          <img
-            className="guidedBreathingImg"
-            src={guidedBreathing}
-            alt="guided breathing"
+      <div className="chat-container">
+        <div className="messages-list">
+          {messages.map((msg, index) => (
+            <Chatbox key={index} message={msg.text} isSender={msg.isSender} />
+          ))}
+        </div>
+        <div className="input-container">
+          <Link to="/meditate">
+            <img
+              className="guidedBreathingImg"
+              src={guidedBreathing}
+              alt="guided breathing"
+            />
+          </Link>
+          <input
+            type="text"
+            value={input}
+            onChange={handleInputChange}
+            onKeyPress={handleKeyPress}
+            placeholder="Type a message..."
           />
-        </Link>
-        <input
-          type="text"
-          value={input}
-          onChange={handleInputChange}
-          onKeyPress={handleKeyPress}
-          placeholder="Type a message..."
-        />
-        <img
-          className="sendBtn"
-          src={send}
-          alt="guided breathing"
-          onClick={handleSend}
-        />
+          <img
+            className="sendBtn"
+            src={send}
+            alt="guided breathing"
+            onClick={handleSend}
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
