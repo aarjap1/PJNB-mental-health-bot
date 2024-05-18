@@ -1,10 +1,15 @@
 @import url('https://fonts.cdnfonts.com/css/sansation?styles=169710');
 
+.meditatePage {
+  overflow: hidden;
+}
+
 .meditateImage {
   display: flex;
   justify-content: center;
   margin-top: 30px;
   animation: swing 10s infinite;
+
 }
 
 @keyframes swing {

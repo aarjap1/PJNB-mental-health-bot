@@ -38,18 +38,33 @@
     background-color: #E6FAF0;
     border: none;
     outline: none;
+    position: relative;
+    /* Add relative positioning for the container */
 }
 
 .input-container input {
     font-family: 'Sansation', sans-serif;
     flex: 1;
-    padding: 10px;
+    padding-left: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 20px;
     margin-right: 10px;
     height: 46px;
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
     font-weight: 600;
+    z-index: 1;
+}
+
+.input-container img.sendBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+    z-index: 2;
+    margin-right: 40px;
 
 }
 
