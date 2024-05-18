@@ -1,8 +1,8 @@
 import Chatbox from "../components/Chatbox";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import guidedBreathing from '../assets/images/guidedBreathing.png';
-import send from '../assets/images/send.png';
+import guidedBreathing from "../assets/images/guidedBreathing.png";
+import send from "../assets/images/send.png";
 import "../css/Meditate.css";
 
 const Chatbot = () => {
@@ -34,7 +34,13 @@ const Chatbot = () => {
         ))}
       </div>
       <div className="input-container">
-        <Link to="/meditate"><img className="guidedBreathingImg" src= {guidedBreathing} alt="guided breathing" /></Link>
+        <Link to="/meditate">
+          <img
+            className="guidedBreathingImg"
+            src={guidedBreathing}
+            alt="guided breathing"
+          />
+        </Link>
         <input
           type="text"
           value={input}
@@ -42,7 +48,12 @@ const Chatbot = () => {
           onKeyPress={handleKeyPress}
           placeholder="Type a message..."
         />
-        <img className="sendBtn" src= {send} alt="guided breathing" onClick={handleSend}/>
+        <img
+          className="sendBtn"
+          src={send}
+          alt="guided breathing"
+          onClick={handleSend}
+        />
       </div>
     </div>
   );

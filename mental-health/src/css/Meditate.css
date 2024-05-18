@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   margin-top: 30px;
-  animation: swing 60s infinite;
+  animation: swing 10s infinite;
 }
 
 @keyframes swing {

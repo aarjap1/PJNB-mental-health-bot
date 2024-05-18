@@ -8,5 +8,4 @@ const Chatbox = ({ message, isSender }) => {
   );
 };
 
-
 export default Chatbox;
