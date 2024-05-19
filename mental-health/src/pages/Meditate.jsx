@@ -4,18 +4,21 @@ import chat from "../assets/images/chat.png";
 import meditate from "../assets/images/meditation.png";
 import alarmSound from "../assets/sounds/alarm.mp3";
 import calmMusic from "../assets/sounds/calmMusic.mp3";
+import axios from 'axios';  // Ensure axios is correctly imported
 import '../css/Meditate.css'
+import Typography from '@mui/material/Typography';
 
 const Meditate = () => {
-  const [timer, setTimer] = useState("00 : 59");
+  const [timer, setTimer] = useState("15 : 00");
   const [isRunning, setIsRunning] = useState(false);
-  const [currentTime, setCurrentTime] = useState(59);
+  const [currentTime, setCurrentTime] = useState(900);
   const [alarmAudio] = useState(new Audio(alarmSound));
   const [calmMusicAudio] = useState(new Audio(calmMusic));
-
-  // Access the meditationName prop from the location state
   const location = useLocation();
-  const meditationName = location.state?.meditationName;
+  // Access the meditationName prop from the location state
+  const [instructions, setInstructions] = useState("");
+  const [time, setTime] = useState("00:00");
+  const [meditationName, setMeditationName] = useState("");
 
   useEffect(() => {
     let timerInterval;
@@ -38,6 +41,20 @@ const Meditate = () => {
 
     return () => clearInterval(timerInterval);
   }, [isRunning]);
+
+  useEffect(() => {
+    const meditationNameTem = location.state.meditationName;
+    setMeditationName(meditationNameTem);
+    const encodedName = encodeURIComponent(meditationNameTem);
+    axios.get(`https://data-hackfest.onrender.com/meditation/${encodedName}`)
+      .then(response => {
+        console.log(response.data.instructions)
+        setInstructions(response.data.instructions);
+      })
+      .catch(error => {
+        setError(error);
+      });
+  }, []);
 
   useEffect(() => {
     const minutes = Math.floor(currentTime / 60)
@@ -65,7 +82,7 @@ const Meditate = () => {
 
   const resetTimer = () => {
     setIsRunning(false);
-    setCurrentTime(59);
+    setCurrentTime(900);
     alarmAudio.pause();
     alarmAudio.currentTime = 0;
     calmMusicAudio.pause();
@@ -86,13 +103,15 @@ const Meditate = () => {
             <img src={chat} className="message-icon" alt="Back to home" />
           </div>
         </Link>
-        <div>
-          {meditationName}
-          {console.log("Hi ", meditationName)}
+        <div className="meditationName">
+          <h1>{meditationName}</h1>
         </div>
         <div className="meditateImage">
           <img src={meditate} alt="Meditate" />
         </div>
+        <Typography variant="body1" gutterBottom className="instructionBody">
+          {instructions}
+        </Typography>
         <div className="controlsContainer">
           <button
             className="button start"

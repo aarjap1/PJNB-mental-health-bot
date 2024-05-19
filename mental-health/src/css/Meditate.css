@@ -6,8 +6,9 @@
   justify-content: space-between;
   align-items: center;
   height: 100vh;
+  width: 100%;
   /* Set the height to the full viewport height */
-  overflow: hidden;
+  /* overflow: hidden; */
   /* Hide any content that overflows the viewport */
 }
 
@@ -44,6 +45,11 @@
   }
 }
 
+.instructionBody {
+
+}
+
+
 .message-icon {
   margin-top: 10px;
   margin-left: 20px;
@@ -65,8 +71,8 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(to right, #E6FAF0 0%, #91E8BC 50%, #E6FAF0 100%);
-  width: 886px;
-  height: 120px;
+  width: 700px;
+  height: 100px;
   margin-top: 15px;
   font-size: 39px;
 }

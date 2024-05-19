@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../css/ItemComponent.css'; // Import the CSS file for styling
+import send from '../assets/images/send.png';
 
-const ItemComponent = ({ meditationName }) => {
+const MeditationItem = ({ meditationName }) => {
   return (
     <div className='meditationItem'>
-      {meditationName}
-
-      <Link to={{
-        pathname: "/meditate",
-        state: { meditationName: meditationName }
-      }}>
-        <div className="goToMedBtn">Go to Meditation</div></Link>
-      
+      <div className="content">
+        <h2 className="meditationName">{meditationName}</h2>
+        <div className="linkContainer">
+          <Link to="/meditate" state={{ meditationName: meditationName }}>
+            <img className='sendBtn' src={send}/>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default ItemComponent;
+export default MeditationItem;

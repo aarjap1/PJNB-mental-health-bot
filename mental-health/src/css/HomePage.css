@@ -4,8 +4,39 @@
 
 
 .guidedBreathingImg {
-    max-height: 75px;
-    max-width: 75px;
-    margin-left: 20px;
-    margin-right: 25px;
+    max-height: 100px;
+    max-width: 100px;
+    margin: 20px;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .topBar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .searchButton {
+    background-color: #9191E8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+  }
+  
+  .searchButton:hover {
+    background-color: #6767DF;
+  }
+  
+  .searchButton:active {
+    transform: translateY(1px);
+  }
+  

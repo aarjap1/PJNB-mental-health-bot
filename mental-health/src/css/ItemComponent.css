@@ -1,0 +1,39 @@
+.meditationItem {
+    background-color: #E6E6FA;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .meditationName {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .linkContainer {
+    margin-left: auto;
+  }
+  
+  .sendBtn{
+    max-width: 30px;
+    max-height: 30px;
+  }
+  
+  .no-underline {
+    text-decoration: none;
+  }
+  .goToMedBtn:hover {
+    background-color: #3DD688;
+  }
+
+  ul {
+    list-style-type: none;
+  }
