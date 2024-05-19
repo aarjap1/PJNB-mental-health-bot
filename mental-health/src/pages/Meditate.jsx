@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import chat from "../assets/images/chat.png";
 import meditate from "../assets/images/meditation.png";
 import alarmSound from "../assets/sounds/alarm.mp3";
 import calmMusic from "../assets/sounds/calmMusic.mp3";
+import '../css/Meditate.css'
 
 const Meditate = () => {
   const [timer, setTimer] = useState("00 : 59");
@@ -11,6 +12,10 @@ const Meditate = () => {
   const [currentTime, setCurrentTime] = useState(59);
   const [alarmAudio] = useState(new Audio(alarmSound));
   const [calmMusicAudio] = useState(new Audio(calmMusic));
+
+  // Access the meditationName prop from the location state
+  const location = useLocation();
+  const meditationName = location.state?.meditationName;
 
   useEffect(() => {
     let timerInterval;
@@ -81,6 +86,10 @@ const Meditate = () => {
             <img src={chat} className="message-icon" alt="Back to home" />
           </div>
         </Link>
+        <div>
+          {meditationName}
+          {console.log("Hi ", meditationName)}
+        </div>
         <div className="meditateImage">
           <img src={meditate} alt="Meditate" />
         </div>
